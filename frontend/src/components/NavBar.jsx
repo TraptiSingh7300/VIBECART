@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/redux/userSlice";
 
 const NavBar = () => {
-  const { user } = useSelector((store) => store.user);
+  const { user } = useSelector(store => store.user);
+  const {cart} = useSelector(store=>store.product);
   const accessToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -59,8 +60,8 @@ const NavBar = () => {
           </ul>
           <Link to={"/cart"} className="relative">
             <ShoppingCart color="white" />
-            <span className="bg-amber-50 text-[#ff5252] text-[15px] rounded-full absolute -top-3 -right-5 px-2">
-              0
+            <span className="bg-amber-50 text-[#ff5252] text-[15px] rounded-full absolute -top-3 -right-5 px-2 font-bold">
+              {cart?.items?.length || 0}
             </span>
           </Link>
           {user ? (
