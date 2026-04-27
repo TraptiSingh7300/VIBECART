@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import userLogo from "../assets/user.png";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,21 @@ const Cart = () => {
 
   const API = "http://localhost:8000/api/v1/cart";
   const accessToken = localStorage.getItem("accessToken");
+
+  const loadCart = async ()=>{
+    try {
+        const res= await axios.get(API,{
+            headers:{
+                Authorization:`Bearer ${accessToken}`
+            }
+        })
+        if(res.data.success){
+            dispatch(setCart(res.data.cart))
+        }
+    } catch (error) {
+        console.log(error)
+    }
+  }
 
   const handleUpdateQuantity = async (productId, type) => {
     try {
@@ -61,6 +76,10 @@ const Cart = () => {
       console.log(error);
     }
   };
+
+  useEffect(()=>{
+    loadCart()
+  },[dispatch])
 
   return (
     <div className="pt-22 bg-gray-50 min-h-screen">
