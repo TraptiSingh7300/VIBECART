@@ -8,6 +8,7 @@ import Verify from './pages/Verify';
 import VerifyEmail from './pages/VerifyEmail';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
+import Products from './pages/Products';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path:'/profile/:userId',
     element:<><NavBar/><Profile/></>
+  },
+  {
+    path:'/products',
+    element:<><NavBar/><Products/></>
   },
 ])
 

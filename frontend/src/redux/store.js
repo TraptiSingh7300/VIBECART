@@ -1,6 +1,7 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import userSlice from "./userSlice.js"
-import { createRoot } from 'react-dom/client'
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import userSlice from "./userSlice.js";
+import productSlice from "./productSlice.js"
+import { createRoot } from "react-dom/client";
 import {
   persistStore,
   persistReducer,
@@ -10,7 +11,8 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
+} from "redux-persist";
+import Products from "@/pages/Products.jsx";
 
 const storage = {
   getItem: (key) => Promise.resolve(localStorage.getItem(key)),
@@ -19,16 +21,17 @@ const storage = {
 };
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage,
-}
+};
 
 const rootReducer = combineReducers({
-    user:userSlice
-})
+  user: userSlice,
+  product: productSlice,
+});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -38,8 +41,8 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-})
+});
 
 export const persistor = persistStore(store);
 
-export default store
+export default store;
