@@ -12,6 +12,7 @@ const NavBar = () => {
   const { user } = useSelector(store => store.user);
   const {cart} = useSelector(store=>store.product);
   const accessToken = localStorage.getItem("accessToken");
+  const admin = user?.role === "admin" ? true : false
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -55,6 +56,11 @@ const NavBar = () => {
             {user && (
               <Link to={`/profile/${user._id}`} className="text-white">
                 <li>Hello, {user.firstName}</li>
+              </Link>
+            )}
+            {admin && (
+              <Link to={`/dashboard/sales`} className="text-white">
+                <li>Dashboard</li>
               </Link>
             )}
           </ul>

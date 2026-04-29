@@ -15,6 +15,10 @@ const ProductCard = ({ product, loading }) => {
   const navigate = useNavigate();
 
   const addToCart = async (productId) => {
+    if (!accessToken) {
+      toast.error("Please login to add items to your cart");
+      return navigate("/login");
+    }
     try {
       const res = await axios.post(
         `http://localhost:8000/api/v1/cart/add`,
@@ -25,6 +29,7 @@ const ProductCard = ({ product, loading }) => {
           },
         },
       );
+
       if (res.data.success) {
         toast.success("Product added to Cart");
         dispatch(setCart(res.data.cart));
@@ -41,6 +46,7 @@ const ProductCard = ({ product, loading }) => {
           <Skeleton className="w-full h-full rounded-lg" />
         ) : (
           <img
+            onClick={()=>navigate(`/products/${product._id}`)}
             src={productImg[0]?.url}
             alt=""
             className="w-full h-full transition-transform duration-300 hover:scale-105"
