@@ -179,7 +179,7 @@ const Cart = () => {
                       <Input placeholder="Promo Code" />
                       <Button variant="outline">Apply</Button>
                     </div>
-                    <Button className="w-full bg-[#ff5252] cursor-pointer hover:bg-[#ff5252]/90">
+                    <Button onClick={()=>navigate('/address')} className="w-full bg-[#ff5252] cursor-pointer hover:bg-[#ff5252]/90">
                       PLACE ORDER
                     </Button>
                     <Button variant="outline" className="w-full bg-transparent">

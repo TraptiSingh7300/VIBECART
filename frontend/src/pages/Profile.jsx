@@ -103,7 +103,7 @@ const Profile = () => {
               <h1 className="font-bold mb-7 text-2xl text-gray-800">
                 Update Profile
               </h1>
-              <div className="w-full flex gap-10 justify-between items-start px-7 max-w-3xl">
+              <div className="w-full flex gap-10 justify-between items-start px-7 max-w-5xl">
                 {/* profile section */}
                 <div className="flex flex-col items-center">
                   <img
@@ -189,7 +189,8 @@ const Profile = () => {
                       className="w-full border rounded-lg px-3 py-2 mt-1"
                     />
                   </div>
-                  <div>
+                  <div className="grid grid-cols-3 gap-5">
+                    <div>
                     <Label className="block text-sm font-medium">City</Label>
                     <Input
                       type="text"
@@ -221,6 +222,7 @@ const Profile = () => {
                       onChange={handleChange}
                       className="w-full border rounded-lg px-3 py-2 mt-1"
                     />
+                  </div>
                   </div>
                   <Button
                     type="submit"

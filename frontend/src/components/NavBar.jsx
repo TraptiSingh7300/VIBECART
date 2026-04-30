@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/redux/userSlice";
 
 const NavBar = () => {
-  const { user } = useSelector(store => store.user);
-  const {cart} = useSelector(store=>store.product);
+  const { user } = useSelector((store) => store.user);
+  const { cart } = useSelector((store) => store.product);
   const accessToken = localStorage.getItem("accessToken");
-  const admin = user?.role === "admin" ? true : false
+  const admin = user?.role === "admin" ? true : false;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,7 +42,9 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3">
         {/* logo section */}
         <div>
-          <img src="/logo.jpg" alt="" className="w-50" />
+          <Link to="/">
+            <img src="/logo.jpg" alt="" className="w-50" />
+          </Link>
         </div>
         {/* nav section */}
         <nav className="flex gap-10 justify-between items-center">
