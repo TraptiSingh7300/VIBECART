@@ -18,6 +18,7 @@ import userLogo from "../assets/user.png";
 import { setUser } from "@/redux/userSlice";
 import axios from "axios";
 import { toast } from "sonner";
+import MyOrder from "./MyOrder";
 
 const Profile = () => {
   const { user } = useSelector((store) => store.user);
@@ -236,27 +237,7 @@ const Profile = () => {
           </div>
         </TabsContent>
         <TabsContent value="orders">
-          <Card>
-            <CardHeader>
-              <CardTitle>Orders</CardTitle>
-              <CardDescription>
-                Change your orders here. After saving, you&apos;ll be logged
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-6">
-              <div className="grid gap-3">
-                <Label htmlFor="tabs-demo-current">Current Orders</Label>
-                <Input id="tabs-demo-current" type="orders" />
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="tabs-demo-new">New orders</Label>
-                <Input id="tabs-demo-new" type="orders" />
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button>Save orders</Button>
-            </CardFooter>
-          </Card>
+          <MyOrder/>
         </TabsContent>
       </Tabs>
     </div>

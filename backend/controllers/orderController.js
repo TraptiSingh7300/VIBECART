@@ -108,3 +108,64 @@ export const verifyPayment = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+export const getMyOrder=async(req,res)=>{
+  try {
+    const userId=req.user?._id || req.id;
+    const orders=await Order.find({user:userId})
+    .populate({path:"products.productId",select:"productName productPrice productImg"})
+    .populate("user","firstName lastName email")
+
+    res.status(200).json({
+      success:true,
+      count:orders.length,
+      orders,
+    })
+  } catch (error) {
+    console.error("Error fetching user orders:",error)
+    res.status(500).json({message:error.message})
+  }
+}
+
+export const getUserOrders=async(req,res)=>{
+  try {
+    const {userId}=req.params
+    const orders = await Order.find({user:userId})
+    .populate({
+      path:"products.productId",
+      select:"productName prouctPrice productImg"
+    })
+    .populate("user","firstName lastName email")
+
+    res.status(200).json({
+      success:true,
+      count:orders.length,
+      orders
+    })
+  } catch (error) {
+    console.log("Error fetching user order : ",error)
+    res.status(500).json({message:error.message})
+  }
+}
+
+export const getAllOrdersAdmin=async(req,res)=>{
+  try {
+    const orders=await Order.find()
+    .sort({createdAt:-1})
+    .populate("user","name email")
+    .populate("products.productId","productName productPrice")
+
+    res.json({
+      success:true,
+      count:orders.length,
+      orders
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({
+      success:false,
+      message:"Failed to fetch all orders",
+      error:error.message
+    })
+  }
+}

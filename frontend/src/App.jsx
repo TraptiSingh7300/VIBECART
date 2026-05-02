@@ -21,6 +21,7 @@ import UserInfo from './pages/admin/UserInfo';
 import ProtectedRoute from './components/ProtectedRoute';
 import SingleProduct from './pages/SingleProduct';
 import AddressForm from './pages/AddressForm';
+import OrderSuccess from './pages/OrderSuccess';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
     element:<ProtectedRoute><AddressForm/></ProtectedRoute>
   },
   {
+    path:'/order-success',
+    element:<ProtectedRoute><OrderSuccess/></ProtectedRoute>
+  },
+  {
     path:'/dashboard',
     element: <ProtectedRoute adminOnly={true}><NavBar/><Dashboard/></ProtectedRoute>,
     children:[
@@ -80,7 +85,7 @@ const router = createBrowserRouter([
         element:<AdminProduct/>
       },
       {
-        path:'user/orders/:userId',
+        path:'users/orders/:userId',
         element:<ShowUserOrders/>
       },
       {

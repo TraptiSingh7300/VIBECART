@@ -74,7 +74,7 @@ const AdminUsers = () => {
                   <Edit />
                   Edit
                 </Button>
-                <Button className="cursor-pointer">
+                <Button onClick={()=>navigate(`/dashboard/users/orders/${user?._id}`)} className="cursor-pointer">
                   <Eye />
                   Show Order
                 </Button>
