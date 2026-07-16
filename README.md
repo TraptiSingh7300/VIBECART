@@ -11,19 +11,19 @@
 ## 📸 Screenshots
 
 ### 🏠 Home Page - Hero Section
-![VIBECART Home Page](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/01-home-page.png)
+![VIBECART Home Page](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/Screenshot (609).png)
 *Browse the latest electronics at best prices with an intuitive hero section*
 
 ### 🛒 Products Page - Advanced Filters
-![Products Listing](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/02-products-page.png)
+![Products Listing](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/Screenshot (610).png)
 *Explore products with category filters, brand selection, and price range control*
 
 ### 🛍️ Shopping Cart
-![Shopping Cart](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/03-shopping-cart.png)
+![Shopping Cart](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/Screenshot (612).png)
 *Manage your cart with quantity adjustments, order summary, and secure checkout*
 
 ### 📊 Admin Dashboard
-![Admin Dashboard](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/04-admin-dashboard.png)
+![Admin Dashboard](https://raw.githubusercontent.com/TraptiSingh7300/VIBECART/main/screenshots/Screenshot (613).png)
 *Comprehensive sales analytics, inventory management, and real-time insights*
 
 ---
